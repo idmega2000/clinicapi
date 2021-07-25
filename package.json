@@ -8,7 +8,7 @@
     "serve": "node ./dist/src/server.js",
     "build": "rm -rf dist/ && babel ./src --out-dir dist/ --ignore ./node_modules --copy-files",
     "dev": "nodemon",
-    "test": "npm run test"
+    "test": "export NODE_ENV=test && nyc --reporter=text --reporter=lcov mocha -r dotenv/config -r @babel/register tests/**/*.spec.js --timeout=30000 --exit --recursive"
   },
   "author": "idris kelani",
   "license": "ISC",
@@ -20,7 +20,8 @@
     "helmet": "^4.6.0",
     "hpp": "^0.2.3",
     "joi": "^17.4.1",
-    "memory-cache": "^0.2.0"
+    "memory-cache": "^0.2.0",
+    "node-cache": "^5.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
