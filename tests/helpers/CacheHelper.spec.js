@@ -22,27 +22,10 @@ describe('Encryption helpers', () => {
       const cache = await CacheHelper.getCache(SAVE_TO);
       expect(cache.a).to.be.equal(SAMPLE_DATA.a);
     });
-  it('should return a true when data gotten successfully from cache',
+  it('should return a false when data is not in the cache',
     async () => {
       await CacheHelper.saveToCache(SAVE_TO, SAMPLE_DATA, 100000);
-      const cache = await CacheHelper.findFromCache(NOT_EXIST, 'a');
-      expect(cache).to.be.false;
+      const cache = await CacheHelper.getCache(NOT_EXIST);
+      expect(cache).to.not.be.true;
     });
-  it('should return the data that was searched',
-    async () => {
-      await CacheHelper.saveToCache(SAVE_TO, SAMPLE_DATA, 100000);
-      const cache = await CacheHelper.findFromCache(SAVE_TO, 'a');
-      expect(cache).to.be.equal(SAMPLE_DATA.a);
-    });
-  it('should return false if the data is not found',
-    async () => {
-      await CacheHelper.saveToCache(SAVE_TO, SAMPLE_DATA, 100000);
-      const cache = await CacheHelper.findFromCache(SAVE_TO, 'b');
-      expect(cache).to.be.equal(false);
-    });
-  it('should return false when error is thrown', async () => {
-    sinon.stub(CacheHelper, 'getCache').throws();
-    const cache = await CacheHelper.findFromCache(SAVE_TO);
-    expect(cache).to.be.false;
-  });
 });
