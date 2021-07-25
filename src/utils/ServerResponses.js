@@ -1,5 +1,5 @@
 
-  import { RESPONSE_CODES } from './Constants';
+  import { RESPONSE_CODES, RESPONSE_MESSAGE } from './Constants';
 import logger from './logger';
 
   /**
@@ -19,7 +19,7 @@ import logger from './logger';
        */
     static successOk(res, responseMessage, data = {},
       statusCode = 200,
-      status = 'success',) {
+      status = 'success') {
       ServerResponses.logData(res, responseMessage, data, statusCode,
         status);
       return res.status(statusCode)
@@ -79,7 +79,7 @@ import logger from './logger';
      * @param {String} status the status of the event
      * @returns {object} returns response object with the necessary info
      */
-    static serverError(res, responseMessage = RESPONSE_MESSAGE.SOMETHING_WENT_WRONT,
+    static serverError(res, responseMessage = RESPONSE_MESSAGE.SERVER_ERROR,
       data = null, statusCode = 500,
       status = 'error') {
       return res.status(500).json({
