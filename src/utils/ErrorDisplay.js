@@ -33,12 +33,13 @@ const ErrorDisplay = (res, error) => {
       // handle route not found
       errorToDisplay = ServerResponse.notFound(res, RESPONSE_MESSAGE.NOT_FOUND);
       break;
+      
     // case where the error is not part of the server identified error
     // most likely 500 errors
     default:
       errorToDisplay = ServerResponse.serverError(res, RESPONSE_MESSAGE.SERVER_ERROR);
   }
-  
+
   // log the error information
   ServerResponse.logData(res, message, null, statusCode,
     'error');

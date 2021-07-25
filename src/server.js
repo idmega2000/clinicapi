@@ -60,6 +60,7 @@ app.use((req, res, next) => {
 
 // handle all app errors 
 app.use((err, req, res, next) => {
+    console.log('this si the error', err.name);
     return ErrorDisplay(res, err);
 });
 

@@ -19,12 +19,13 @@ export const ERROR_NAMES = {
     ValidationError: 'ValidationError',
     NotFoundError: 'NotFoundError',
     ServerError: 'ServerError',
+    SyntaxError: 'SyntaxError'
 };
 
 // response messages
 export const RESPONSE_MESSAGE = {
     WELCOME: 'Welcome to Clinic API',
-    INVALID_JSON: 'Invalid Json',
+    INVALID_JSON: 'Invalid JSON',
     SERVER_ERROR: 'Something Went Wrong, Please try again later',
     NOT_FOUND: 'Route does not exist',
 }
