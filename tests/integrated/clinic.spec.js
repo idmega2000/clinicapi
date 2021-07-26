@@ -6,7 +6,7 @@ import url from 'server';
 chai.use(chaiHttp);
 
 describe('API endpoint to search for clinic', () => {
-	describe('Search for unsettled transactions', () => {
+	describe('Search for clinics', () => {
 		beforeEach(async () => {
 		});
 		afterEach(() => sinon.restore());

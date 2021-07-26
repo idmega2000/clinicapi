@@ -31,7 +31,7 @@ const ErrorDisplay = (res, error) => {
     // case where the application does not find the route
     case ERROR_NAMES.NotFoundError:
       // handle route not found
-      errorToDisplay = ServerResponse.notFound(res, RESPONSE_MESSAGE.NOT_FOUND);
+      errorToDisplay = ServerResponse.notFound(res, message);
       break;
       
     // case where the error is not part of the server identified error

@@ -5,7 +5,7 @@ import url from 'server';
 chai.use(chaiHttp);
 
 describe('API endpoint for the home endpoints', () => {
-	describe('Search for unsettled transactions', () => {
+	describe('view home', () => {
 
 		it('it should return a failed record if unknown route is passed',
 			() => chai.request(url)
@@ -22,7 +22,6 @@ describe('API endpoint for the home endpoints', () => {
 				.send('{"invalid"}')
 				.type('json')
 				.then((res) => {
-					console.log(res.body);
 					expect(res).to.have.status(400);
 					expect(res.body).to.be.an('Object');
 					expect(res.body.responseMessage).to.equal('Invalid JSON');
