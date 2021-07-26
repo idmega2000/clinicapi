@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && npm run serve",
     "serve": "node ./dist/server.js",
-    "build": "rm -rf dist/ && babel src --out-dir dist/ --ignore ./node_modules --copy-files",
+    "build": "rm -rf dist/ && babel ./src --out-dir dist/ --ignore ./node_modules --copy-files",
     "dev": "nodemon",
     "test": "export NODE_ENV=test && nyc --reporter=text --reporter=lcov mocha -r dotenv/config -r @babel/register tests/**/*.spec.js --timeout=30000 --exit --recursive",
     "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
