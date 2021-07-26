@@ -5,7 +5,8 @@ A simple clinic data fetch
 
 
 Visit App [Here](https://clientapi-search.herokuapp.com/)
-Visit Url for search [Here](https://clientapi-search.herokuapp.com/)
+Visit Url for search [Here](https://clientapi-search.herokuapp.com/api/v1/clinic)
+Visit Swagger doc [Here](https://clientapi-search.herokuapp.com/docs)
 
 |  Functionality     |Http Request   | Api endpoints    |
 |  -------------     | ------------- | ---------------- |
@@ -62,5 +63,11 @@ clinicType is the type of clinic [ex Dental or Vetenary]
 After setting up the project you should run the command below to run the test
 - `npm run test`
 
+## Development notes
+ES6 is used for the devoplopment
+Javascript Classes are used entirely in this project with name of class same as name of File
 
-##
+- Parrallel api fetching for fetching the clinic data
+- only one of the gotten data is looped while accessinf the other in the loop
+- Care is taken not to loop the state array data at every search so it is packed in a object(for better search)
+- Much attention was taken into reducing the amount of looping.
