@@ -59,17 +59,6 @@ class SearchHelper {
     }
   }
 
-  /**
-   * @description get the state sent in by the user
-   * @param {string} inputedState - The state sent by the user
-   * @returns {object} - objec of the state
-   */
-  static getState(inputedState) {
-    const lowerCaseInput = inputedState.toLowerCase()
-    return States.find(state => (state.name.toLowerCase() === lowerCaseInput
-      || state.code.toLowerCase() === lowerCaseInput));
-  }
-
     /**
    * @description call api to get the clinic data
    * @returns {object} - return object of clinic data
@@ -81,6 +70,7 @@ class SearchHelper {
       FetchHelper.get(EnvData.CLINIC_DENTAL_API)
     ])
 
+    // if any of the endpoint fail return empty array
     return {
       vetClinic: response[0].value || [],
       dentalClinic: response[1].value || []

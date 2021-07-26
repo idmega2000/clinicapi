@@ -19,7 +19,6 @@ class ClinicService {
   static async searchedClinic(query) {
     let { state } = query;
     const validateQuery = ClinicValidator.validateClinicData(query).error;
-
     // validate the imput
     if (validateQuery) {
       throw new APIException(validateQuery.details[0].message);

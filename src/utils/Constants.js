@@ -29,7 +29,9 @@ export const RESPONSE_MESSAGE = {
     SERVER_ERROR: 'something Went Wrong, please try again later',
     NOT_FOUND: 'route does not exist',
     CLINIC_NOT_FOUND: 'clinic not found',
-    CLINIC_FETCHED: 'clinic fetched successfull'
+    CLINIC_FETCHED: 'clinic fetched successfull',
+    TIME_FORMAT: 'time should be entered in format hh:mm',
+    TIME_EARLIER: 'availableFrom must be earlier than availableTo'
 }
 
 // different version urls

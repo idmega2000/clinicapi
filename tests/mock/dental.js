@@ -1,4 +1,4 @@
-const Dental = [
+const DentalClinic = [
     {
        "clinicName":"Good Health Home",
        "stateCode":"FL",
@@ -42,4 +42,4 @@ const Dental = [
 ]
 
 
-export default Dental;
+export default DentalClinic;

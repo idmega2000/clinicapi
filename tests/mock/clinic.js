@@ -1,4 +1,4 @@
-const Clinic = [
+const VetClinic = [
     {
        "id": 1,
        "name":"Good Health Home",
@@ -91,4 +91,4 @@ const Clinic = [
     }
  ]
 
- export default Clinic;
+ export default VetClinic;
