@@ -5,7 +5,7 @@ import url from 'server';
 chai.use(chaiHttp);
 
 describe('API endpoint for the home endpoints', () => {
-	describe('Search for unsettled transactions', () => {
+	describe('view home', () => {
 
 		it('it should return a failed record if unknown route is passed',
 			() => chai.request(url)
@@ -14,7 +14,7 @@ describe('API endpoint for the home endpoints', () => {
 				.then((res) => {
 					expect(res).to.have.status(404);
 					expect(res.body).to.be.an('Object');
-					expect(res.body.responseMessage).to.equal('Route does not exist');
+					expect(res.body.responseMessage).to.equal('route does not exist');
 				}));
 		it('it should return a failed record if invalid json object is passed',
 			() => chai.request(url)
@@ -22,10 +22,9 @@ describe('API endpoint for the home endpoints', () => {
 				.send('{"invalid"}')
 				.type('json')
 				.then((res) => {
-					console.log(res.body);
 					expect(res).to.have.status(400);
 					expect(res.body).to.be.an('Object');
-					expect(res.body.responseMessage).to.equal('Invalid JSON');
+					expect(res.body.responseMessage).to.equal('invalid JSON');
 				}));
 
 		it('it should return success when user access home',
@@ -35,7 +34,7 @@ describe('API endpoint for the home endpoints', () => {
             .then((res) => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.be.an('Object');
-                expect(res.body.responseMessage).to.equal('Welcome to Clinic API');
+                expect(res.body.responseMessage).to.equal('welcome to clinic API');
             }));
 
 		it('it should return success when user access api v1 home',
@@ -45,7 +44,7 @@ describe('API endpoint for the home endpoints', () => {
             .then((res) => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.be.an('Object');
-                expect(res.body.responseMessage).to.equal('Welcome to Clinic API version 1');
+                expect(res.body.responseMessage).to.equal('welcome to clinic API version 1');
             }));
 	});
 });

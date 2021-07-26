@@ -5,7 +5,7 @@ import cors from 'cors';
 import hpp from 'hpp';
 
 import APIException from 'utils/APIException';
-import { ERROR_NAMES } from 'utils/Constants'
+import { ERROR_NAMES, RESPONSE_MESSAGE } from 'utils/Constants'
 import GeneralHelper from 'helpers/GeneralHelper';
 import EnvData from 'config/EnvData';
 import appRouter from 'routes';
@@ -53,14 +53,14 @@ app.use(hpp());
 
 // / catch 404 and forward to error handler
 app.use((req, res, next) => {
-    const err = new APIException('Route not found',
-    ERROR_NAMES.NotFoundError)
+    const err = new APIException(
+        RESPONSE_MESSAGE.NOT_FOUND,
+        ERROR_NAMES.NotFoundError)
     next(err, req, res, next);
 });
 
 // handle all app errors 
 app.use((err, req, res, next) => {
-    console.log('this si the error', err.name);
     return ErrorDisplay(res, err);
 });
 

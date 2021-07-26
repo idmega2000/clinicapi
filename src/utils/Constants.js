@@ -24,8 +24,23 @@ export const ERROR_NAMES = {
 
 // response messages
 export const RESPONSE_MESSAGE = {
-    WELCOME: 'Welcome to Clinic API',
-    INVALID_JSON: 'Invalid JSON',
-    SERVER_ERROR: 'Something Went Wrong, Please try again later',
-    NOT_FOUND: 'Route does not exist',
+    WELCOME: 'welcome to clinic API',
+    INVALID_JSON: 'invalid JSON',
+    SERVER_ERROR: 'something Went Wrong, please try again later',
+    NOT_FOUND: 'route does not exist',
+    CLINIC_NOT_FOUND: 'clinic not found',
+    CLINIC_FETCHED: 'clinic fetched successfull',
+    TIME_FORMAT: 'time should be entered in format hh:mm',
+    TIME_EARLIER: 'availableFrom must be earlier than availableTo'
+}
+
+// different version urls
+export const VSERSION_URL ={
+    V1: '/api/v1',
+}
+
+
+export const CLINIC_TYPES = {
+    Vet: 'Vetinary',
+    Dental: 'Dental'
 }
