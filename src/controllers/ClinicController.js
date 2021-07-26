@@ -23,7 +23,7 @@ class ClinicController {
       const data = await ClinicService
         .searchedClinic(query);
 
-      if(data.length === 0){
+      if(data.clinics.length === 0){
           return ServerResponses.badRequest(res, 
             RESPONSE_MESSAGE.CLINIC_NOT_FOUND,);
       }

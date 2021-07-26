@@ -119,7 +119,7 @@ describe('API endpoint to search for clinic', () => {
 					expect(res).to.have.status(200);
 					expect(res.body).to.be.an('Object');
 					expect(res.body.responseMessage).to.equal('clinic fetched successfull');
-					expect(res.body.data.length).to.greaterThan(0);
+					expect(res.body.data.clinics.length).to.greaterThan(0);
 				}));
 		it('it should return a success record if part of a name is used to search',
 			() => chai.request(url)
@@ -128,7 +128,7 @@ describe('API endpoint to search for clinic', () => {
 					expect(res).to.have.status(200);
 					expect(res.body).to.be.an('Object');
 					expect(res.body.responseMessage).to.equal('clinic fetched successfull');
-					expect(res.body.data.length).to.greaterThan(0);
+					expect(res.body.data.clinics.length).to.greaterThan(0);
 				}));
 		it('it should return a success record if valid state name is used to search',
 			() => chai.request(url)
@@ -137,7 +137,7 @@ describe('API endpoint to search for clinic', () => {
 					expect(res).to.have.status(200);
 					expect(res.body).to.be.an('Object');
 					expect(res.body.responseMessage).to.equal('clinic fetched successfull');
-					expect(res.body.data.length).to.greaterThan(0);
+					expect(res.body.data.clinics.length).to.greaterThan(0);
 				}));
 		it('it should return a success record if valid state code is used to search',
 			() => chai.request(url)
@@ -146,7 +146,7 @@ describe('API endpoint to search for clinic', () => {
 					expect(res).to.have.status(200);
 					expect(res.body).to.be.an('Object');
 					expect(res.body.responseMessage).to.equal('clinic fetched successfull');
-					expect(res.body.data.length).to.greaterThan(0);
+					expect(res.body.data.clinics.length).to.greaterThan(0);
 				}));
 		it('it should return a success record if record has all search fields',
 			() => chai.request(url)
@@ -155,7 +155,17 @@ describe('API endpoint to search for clinic', () => {
 					expect(res).to.have.status(200);
 					expect(res.body).to.be.an('Object');
 					expect(res.body.responseMessage).to.equal('clinic fetched successfull');
-					expect(res.body.data.length).to.greaterThan(0);
+					expect(res.body.data.clinics.length).to.greaterThan(0);
+				}));
+		it('it should return a success for record with pagination data',
+			() => chai.request(url)
+				.get('/api/v1/clinic?name=Clinic&state=Florida&pageNumber=1&pageLimit=10')
+				.then((res) => {
+					expect(res).to.have.status(200);
+					expect(res.body).to.be.an('Object');
+					expect(res.body.responseMessage).to.equal('clinic fetched successfull');
+					expect(res.body.data.clinics.length).to.greaterThan(0);
+					expect(res.body.metal.pageNumber.length).to.equal(1);
 				}));
 	});
 });

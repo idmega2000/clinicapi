@@ -1,5 +1,6 @@
 
 import fetch from 'node-fetch';
+import CacheHelper from './CacheHelpers';
 
 /**
  * @description helper for api calls

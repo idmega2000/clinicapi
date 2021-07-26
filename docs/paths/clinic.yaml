@@ -1,0 +1,88 @@
+paths:
+  /clinic:          
+    get:
+      tags:
+        - Search Clinic
+      summary: get all clinic that match the searched clinic
+      produces:
+      - application/json
+      security:
+        - Bearer: []
+      parameters:
+      - in: query
+        name: name
+        description: the clinic name
+        required: false
+        schema:
+          type: string
+          example: "Clinic"
+      - in: query
+        name: state
+        description: the statename or statecode
+        required: false
+        schema:
+          type: string
+          example: "Fl"
+      - in: query
+        name: availableFrom
+        description: the opening time
+        required: false
+        schema:
+          type: string
+          example: "11:00"
+      - in: query
+        name: availableTo
+        description: the closing time
+        required: false
+        schema:
+          type: string
+          example: "19:00"
+      - in: query
+        name: pageNumber
+        description: the number of the page to access
+        required: false
+        schema:
+          type: integer
+          example: 1
+      - in: query
+        name: pageLimit
+        description: the limit of the page to return
+        required: false
+        schema:
+          type: number
+          example: 10
+      responses:
+        200:
+          description: Response for successful fetching clinic
+          schema:
+            type: 'object'
+            properties:
+              success:
+                type: 'string'
+                example: 'success'
+              responseMessage:
+                type: string
+                example: clinic fetched successfully
+        400:
+          description: Response for failed validation
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: 'error'
+              responseMessage:
+                type: string
+                example: 'please enter a valid name'
+        404:
+          description: clinic not found
+          schema:
+            type: 'object'
+            properties:
+              status:
+                type: string
+                example: 'error'
+              responseMessage:
+                type: string
+                example: Clinic not found
+    

@@ -27,7 +27,7 @@ class CacheHelper {
    */
   static async getCache(cacheName) {
     try {
-      return myCache.get(cacheName);
+       return myCache.get(cacheName);;
     } catch (e) {
       return false;
     }
