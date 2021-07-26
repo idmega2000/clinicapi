@@ -44,3 +44,8 @@ export const CLINIC_TYPES = {
     Vet: 'Vetinary',
     Dental: 'Dental'
 }
+
+export const PAGINATION_INFO = {
+    DEFAULT_PAGE: 1,
+    DEFAULT_LIMIT: 10,
+}

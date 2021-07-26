@@ -1,4 +1,5 @@
 
+import GeneralHelper from 'helpers/GeneralHelper';
 import SearchHelper from 'helpers/SearchHelper';
 import ClinicValidator from 'helpers/validations/ClinicValidator';
 import APIException from 'utils/APIException';
@@ -17,7 +18,6 @@ class ClinicService {
    * @returns {object} - clinic array object
    */
   static async searchedClinic(query) {
-    let { state } = query;
     const validateQuery = ClinicValidator.validateClinicData(query).error;
     // validate the imput
     if (validateQuery) {
@@ -33,46 +33,24 @@ class ClinicService {
     const { vetClinic, dentalClinic } = await SearchHelper.clinicAPIData();
 
     const responseArray = [];
-    const searchLength = vetClinic.length > dentalClinic.length 
-    ? vetClinic.length : dentalClinic.length;
+    const searchLength = SearchHelper.searchLength(vetClinic.length, dentalClinic.length);
 
     // use the tranditional for loop which is faster
     // the method adopted is such that 
     // one can act on both data with just looping one of the array
     for (let i = 0; i < searchLength; i++) {
-      //call method to validate clinic
-      if (vetClinic[i]) {
-        const searializeVet = SearchHelper.serialiseClinicData(vetClinic[i], 
-          CLINIC_TYPES.Vet, stateData)
-        if (ClinicService.search(query, searializeVet)) {
-          responseArray.push(searializeVet);
-        }
-      }
-
       // call the method to validate dental
-      if (dentalClinic[i]) {
-        const searializedDental = SearchHelper
-        .serialiseClinicData(dentalClinic[i], CLINIC_TYPES.Dental, stateData);
-        if (ClinicService.search(query, searializedDental)) {
-          responseArray.push(searializedDental);
-        }
+      const vetData = SearchHelper.addClinicToList(vetClinic[i], stateData, query, CLINIC_TYPES.Vet);
+      const dantalData = SearchHelper.addClinicToList(dentalClinic[i], stateData, query, CLINIC_TYPES.Dental);
+      if(vetData){
+        responseArray.push(vetData);
+      }
+      if(dantalData){
+        responseArray.push(dantalData);
       }
     }
+    return GeneralHelper.getpaginatedData(responseArray, query);
+  }
 
-    return responseArray;
-  }
-  /**
-   * @description add nee charge back
-   * @param {object} query - The request query
-   * @param {object} clinic - The clinics to search
-   * @returns {object} - object representing response message
-   */
-  static search(query, clinic) {
-    const { name, state, availableFrom, availableTo } = query;
-    return (
-      clinic && SearchHelper.searchName(name, clinic.name)
-      && SearchHelper.searchState(state, clinic.stateName, clinic.stateCode) &&
-      SearchHelper.searchTime(availableFrom, availableTo, clinic.availability));
-  }
 }
 export default ClinicService;
