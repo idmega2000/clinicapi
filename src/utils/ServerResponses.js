@@ -1,6 +1,6 @@
 
   import { RESPONSE_CODES, RESPONSE_MESSAGE } from './Constants';
-import logger from './logger';
+import logger from './Logger';
 
   /**
   * @description class will implement functionalities for all server responses
