@@ -1,7 +1,17 @@
 # clinicapi
-A simple clinic data fetch
+A simple clinic data search
 
-(https://coveralls.io/repos/github/idmega2000/clinicapi/badge.svg?branch=develop)](https://coveralls.io/github/idmega2000/clinicapi?branch=dev) [![Maintainability](https://api.codeclimate.com/v1/badges/47a5e77af394185999b5/maintainability)](https://codeclimate.com/github/idmega2000/clinicapi/maintainability)
+
+[![Build Status](https://travis-ci.org/idmega2000/clinicapi.svg?branch=dev)](https://travis-ci.org/idmega2000/clinicapi)[![Coverage Status](https://coveralls.io/repos/github/idmega2000/clinicapi/badge.svg?branch=dev)](https://coveralls.io/github/idmega2000/clinicapi?branch=dev) [![Maintainability](https://api.codeclimate.com/v1/badges/47a5e77af394185999b5/maintainability)](https://codeclimate.com/github/idmega2000/clinicapi/maintainability)
+
+
+## Technologies
+1. [Nodejs](https://nodejs.org/en/)
+2. [Express](https://expressjs.com/)
+4. [Babel](https://babeljs.io/)
+5. [Eslint](https://eslint.org/) and [airbnb style guide](https://github.com/airbnb/javascript)
+6. [mocha](https://mochajs.org)
+
 
 
 Visit App [Here](https://clientapi-search.herokuapp.com/)
@@ -15,20 +25,20 @@ Visit Swagger doc [Here](https://clientapi-search.herokuapp.com/docs)
 
 
 Where deployed locally, make a get request to /api/v1/clinic
-# Notes
+## Notes
 
 - The app uses absolute imports.
 - The app also uses global exception error handling.
 - All logic exceptions are thrown in service files(good practive for easy maintanance).
 
-# Setup Project
+## Setup Project
 To setup project
-- clone project and cd into the folder
-- run npm install
+- clone project `git clone https://github.com/idmega2000/clinicapi.git` and cd into the folder
+- run `npm install`
 - set up the environment variable copy and update frome envsample
 - start the app on dev with `npm run dev`
 
-# Clinic Search request Parameters
+## Clinic Search request Parameters
 - Name [ex: "Mayo Clinic" or "ayo"]
 - State [ex: "CA" or "California"]
 - AvailabileFrom [ex: from:09:00]
@@ -37,7 +47,7 @@ To setup project
 - pageLimit [ex: 10]
 
 
-#Clinic search Response
+## Clinic search Response
 Below is a sample of the search
 sample response
 ```
